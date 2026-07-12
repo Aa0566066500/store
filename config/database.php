@@ -1,38 +1,38 @@
 <?php
 
 $host = "localhost";
-$dbname = "nova_store";
+$dbname = "store";
 $username = "root";
 $password = "";
 
 
 try {
 
-    $conn = new PDO(
+$conn = new PDO(
 
-        "mysql:host=$host;dbname=$dbname;charset=utf8",
+"mysql:host=$host;dbname=$dbname;charset=utf8mb4",
 
-        $username,
+$username,
 
-        $password
+$password
 
-    );
-
-
-    $conn->setAttribute(
-
-        PDO::ATTR_ERRMODE,
-
-        PDO::ERRMODE_EXCEPTION
-
-    );
+);
 
 
-} catch(PDOException $e){
+$conn->setAttribute(
+
+PDO::ATTR_ERRMODE,
+
+PDO::ERRMODE_EXCEPTION
+
+);
 
 
-    die("Database Error: " . $e->getMessage());
+}
 
+catch(PDOException $e){
+
+die("Database Error: ".$e->getMessage());
 
 }
 
